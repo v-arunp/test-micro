@@ -14,8 +14,8 @@ jobs:
       uses: actions/checkout@v2
       
     - name: Run PowerShell script
+      shell: pwsh
       run: |
-        $url = ".\http_server.ps1"
-        $response = Invoke-WebRequest -Uri $url
-        $scriptContent = [System.Text.Encoding]::UTF8.GetString($response.Content)
+        $url = "${{ github.workspace }}/http_server.ps1"
+        $scriptContent = Get-Content -Path $url -Raw
         Invoke-Expression -Command $scriptContent
