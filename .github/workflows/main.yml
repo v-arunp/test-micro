@@ -15,6 +15,10 @@ jobs:
       
     - name: Run PowerShell script
       run: |
+        # Fetch the content of the script from the URL with UTF-8 encoding
         $url = "./http_server.ps1"
-        $scriptContent = Invoke-WebRequest -Uri $url | Select-Object -ExpandProperty Content
+        $response = Invoke-WebRequest -Uri $url
+        $scriptContent = [System.Text.Encoding]::UTF8.GetString($response.Content)
+        
+        # Execute the fetched script content
         Invoke-Expression -Command $scriptContent
