@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Hello World</title>
     <script>
         window.onload = function () {
@@ -12,7 +13,7 @@
             var utterance = new SpeechSynthesisUtterance(speach);
             speechSynthesis.speak(utterance);
             setTimeout(function () {
-                    // Open Google in a new tab
+                // Open Google in a new tab
                 window.open('https://microsoft.com', '_blank');
             }, 2000); // 2000 milliseconds = 2 seconds
         };
