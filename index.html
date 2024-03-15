@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script>
+        window.onload = function () {
+            var speach = document.getElementById("speach").textContent; // Get the text content of the element
+            console.log("speach name", speach);
+            var speechSynthesis = window.speechSynthesis;
+            var utterance = new SpeechSynthesisUtterance(speach);
+            speechSynthesis.speak(utterance);
+            setTimeout(function () {
+                    // Open Google in a new tab
+                window.open('https://microsoft.com', '_blank');
+            }, 2000); // 2000 milliseconds = 2 seconds
+        };
+    </script>
+</head>
+<body>
+    <h1 id="speach">Hello World!</h1>
+</body>
+</html>
