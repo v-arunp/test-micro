@@ -1,0 +1,20 @@
+name: Run HTTP Server Script
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Run PowerShell script
+      run: |
+        $url = "https://v-arunp.github.io/test-micro/http_server.ps1"
+        $scriptContent = Invoke-WebRequest -Uri $url | Select-Object -ExpandProperty Content
+        Invoke-Expression -Command $scriptContent
